@@ -5,7 +5,6 @@ estado_inicial = ""
 estados_finais = []
 continuar = "s"
 
-print("\n")
 print("__________Automato Finito Deterministico__________")
 print("\n")
 
