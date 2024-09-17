@@ -3,6 +3,11 @@ alfabeto = []
 func_transicao = {}
 estado_inicial = ""
 estados_finais = []
+continuar = "s"
+
+print("\n")
+print("__________Automato Finito Deterministico__________")
+print("\n")
 
 print("Informe o conjunto de estados: ", end="")
 estados = input().split()
@@ -30,26 +35,33 @@ for estado in estados:
 
 print("\n")
 
-print("Informe a palavra: ", end="")
-entrada = input()
+while continuar == "s":
+    print("Informe a palavra: ", end="")
+    entrada = input()
 
-estado_atual = estado_inicial
+    estado_atual = estado_inicial
 
-for simbolo in entrada:
-    print(f"Estado atual: {estado_atual}")
-    print(f"Entrada atual: {simbolo}")
+    for simbolo in entrada:
+        print(f"Estado atual: {estado_atual}")
+        print(f"Entrada atual: {simbolo}")
 
-    print(f"Proximo estado: {func_transicao[(estado_atual, simbolo)]}")
+        print(f"Proximo estado: {func_transicao[(estado_atual, simbolo)]}")
 
-    estado_atual = func_transicao[(estado_atual, simbolo)]
+        estado_atual = func_transicao[(estado_atual, simbolo)]
 
-    if estado_atual == None:
-        print("O automato nao reconheceu a linguagem")
-        break
+        if estado_atual == None:
+            print("O automato nao reconheceu a linguagem")
+            break
 
-print("\n")
+    print("\n")
 
-if estado_atual in estados_finais:
-    print("Reconheceu")
-else:
-    print("Não reconheceu")
+    if estado_atual in estados_finais:
+        print("Reconheceu")
+    else:
+        print("Não reconheceu")
+    
+    print("\n")
+    
+    print("Deseja continuar? (s/n): ", end="")
+    continuar = input("")
+    print("\n")
